@@ -1,7 +1,7 @@
 pox_netviz
 ==========
 
-pox_netviz is a POX-based OpenFlow Controller which provides JSON-RPC web services available through CGI.
+pox_netviz is a POX-based OpenFlow Controller which provides JSON-RPC web services available through CGI or commands.
 
 POX is the python based openflow controller(http://www.noxrepo.org/pox/about-pox/).
 
