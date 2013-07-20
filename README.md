@@ -14,13 +14,12 @@ To install, run the following commands.
 
 Some python modules are needed for starting pox_netviz.
 
-networkx: http://networkx.github.io/
-scapy: https://www.secdev.org/scapy-com
+networkx: http://networkx.github.io/  
+scapy: https://www.secdev.org/scapy-com  
 
 To install above modules, run the following commands.
 
-    e.g. 
-    FreeBSD
+    e.g. FreeBSD
     (cd /usr/ports/math/py-networkx; make install clean)
     (cd /usr/ports/devel/mercurial; make install clean)
     hg clone  https://www.secdev.org/scapy-com
@@ -36,9 +35,9 @@ To start POX components, run the following commands.
 References
 ------------
 
-POX: https://github.com/noxrepo/pox
-topodiscovery: https://github.com/jliendo/topodiscovery
-glNetViz: https://github.com/gpp256/glNetViz
+POX: https://github.com/noxrepo/pox  
+topodiscovery: https://github.com/jliendo/topodiscovery  
+glNetViz: https://github.com/gpp256/glNetViz  
 
 License
 ------------
