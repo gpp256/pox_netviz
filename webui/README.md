@@ -8,7 +8,8 @@ To install, run the following commands.
     cd pox_netviz
     mkdir -p /opt/glNetViz/examples/pox-example01
     cp -r webui/* /opt/glNetViz/examples/pox-example01/
-    cp -r webui/ scripts/{tcp_echo_client.pl,udp_client.pl} /opt/glNetViz/lib/tools/
+    cp -r webui/scripts/{tcp_echo_client.pl,udp_client.pl} /opt/glNetViz/lib/tools/
+    cp ../test_scripts/common.conf /opt/glNetViz/examples/pox-example01/scripts/
     
     git clone https://github.com/paulopmx/Flexigrid.git
     mkdir -p /opt/glNetViz/lib/js/Flexigrid
