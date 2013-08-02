@@ -1,6 +1,13 @@
 pox_netviz/webui
 ================
 
+Examples
+---------
+![http://gpp256.zapto.org/glNetViz/examples/pox_netviz_640.png](http://gpp256.zapto.org/glNetViz/examples/pox_netviz_640.png)
+
+Setup
+-----
+
 To install, run the following commands.
 
     e.g.
@@ -52,5 +59,5 @@ To start Vimage Jail, run the following commands.
     cd test_scripts/
     bash vimage_sdn_pox01.sh start
     bash vimage_sdn_pox01.sh test
-    bash vimage_sdn_pox01.sh modflows
+
 
