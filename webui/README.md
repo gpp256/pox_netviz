@@ -1,7 +1,7 @@
 pox_netviz/webui
 ================
 
-Examples
+Example
 ---------
 ![http://gpp256.zapto.org/glNetViz/examples/pox_netviz_640.png](http://gpp256.zapto.org/glNetViz/examples/pox_netviz_640.png)
 
@@ -16,7 +16,7 @@ To install, run the following commands.
     mkdir -p /opt/glNetViz/examples/pox-example01
     cp -r webui/* /opt/glNetViz/examples/pox-example01/
     cp -r webui/scripts/{tcp_echo_client.pl,udp_client.pl} /opt/glNetViz/lib/tools/
-    cp ../test_scripts/common.conf /opt/glNetViz/examples/pox-example01/scripts/
+    cp test_scripts/common.conf /opt/glNetViz/examples/pox-example01/scripts/
     
     git clone https://github.com/paulopmx/Flexigrid.git
     mkdir -p /opt/glNetViz/lib/js/Flexigrid
