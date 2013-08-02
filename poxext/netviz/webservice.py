@@ -220,9 +220,13 @@ class OFSetTableRequest (OFConRequest):
 
     xid = of.generate_xid()
     self.xid = xid
-    self.clear_table(xid=xid)
+    if len(flows) == 0: 
+      self.clear_table(xid=xid)
+      self.count = 1
+    else:
+      self.count = 0
 
-    self.count = 1 + len(flows)
+    self.count += len(flows)
 
     for flow in flows:
       fm = dict_to_flow_mod(flow)
