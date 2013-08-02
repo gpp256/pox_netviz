@@ -166,7 +166,7 @@ case $1 in
 	modflows) sh mod_flows/pox_all.sh >/dev/null 2>&1 ;;
 	inithosts) inithosts >/dev/null 2>&1 ;;
 	*)
-		echo "Usage: $0 {start|stop|modflows|inithosts|test <path> [options]}"; exit 1 ;;
+		echo "Usage: $0 {start|stop|modflows|inithosts|test}"; exit 1 ;;
 esac
 exit 0
 # __END__
