@@ -1,0 +1,4 @@
+<FilesMatch "(\.sh|\.conf|\.log|\.gz|\.pl|\.pm|\.so|\.bs|\.packlist|\.pod)$">
+Order Deny,Allow
+deny from all
+</FilesMatch>

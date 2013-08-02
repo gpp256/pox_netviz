@@ -1,0 +1,206 @@
+<!--
+ index.html 
+
+ Copyright (c) 2013 Yoshi 
+ This software is distributed under the MIT License.(../MIT-LICENSE.txt)
+-->
+
+<html>
+<head>
+<title>WebGL and jQuery - pox_example01 </title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta content="chrome=1" http-equiv="X-UA-Compatible" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sat, 31 Aug 2000 17:35:42 GMT">
+<!-- global variables -->
+<script type="text/javascript" src="global.js"></script>
+<!-- common libraries -->
+<link type="text/css" rel="stylesheet" href="../../lib/css/jquery-ui-1.css">
+<link type="text/css" rel="stylesheet" href="../../lib/css/jslider.css">
+<script type="text/javascript" src="../../lib/js/jquery-1.7.min.js"> </script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery.sprintf.js"></script>
+<script type="text/javascript" src="../../lib/js/minMatrix.js"></script>
+<script type="text/javascript" src="../../lib/js/glNetViz.js"></script>
+<script type="text/javascript" src="../../lib/js/mouse_event.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../../lib/js/Flexigrid/css/flexigrid.css">
+<script type="text/javascript" src="../../lib/js/Flexigrid/js/flexigrid.js"></script>
+
+<!-- scripts for pox_example01 -->
+<link type="text/css" rel="stylesheet" href="webui.css">
+<script type="text/javascript" src="../common.js"> </script>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="get_tabledata.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+<div id="framerate" style="font-size: x-small"></div>
+<div id="displayinfo" style="font-size: xx-small; "> 
+<font size"+0" color="red"><b>&lt;-</b></font> TCP Packets<br>
+<font size"+0" color="blue"><b>&lt;-</b></font> UDP Packets<br>
+<font size"+0" color="mazenda">&lt;-</b></font> ICMP Packets<br>
+</div>
+<div id="objinfo" style="font-size: x-small; font-color: yellow"> 
+Device Infomation:<br>
+</div>
+<table><tr>
+<td align="left" valign="top"> <canvas id="canvas"></canvas> </td>
+<td nowrap valign="top" width="90%" style="font-size: x-small;" align="left">
+
+<div id="ui-tab" style="height: 574;" >
+<ul>
+<li style="width: 45%"><a href="#fragment-1"><span>Change Position</span></a></li>
+<li style="width: 45%"><a href="#fragment-2"><span>Generate Pckets</span></a></li>
+</ul>
+
+<div id="fragment-1">
+<b>Toggle CHANGE_POS_MODE:</b> <p>
+<p class="switch">
+<label id="change-pos-enable" class="change-pos-enable"><span style="width: 60px; text-align: center">&nbsp;&nbsp;On&nbsp;&nbsp;</span></label>
+<label id="change-pos-disable" class="change-pos-disable selected"><span style="width: 60px; text-align: center">&nbsp;&nbsp;Off&nbsp;&nbsp;</span></label>
+</p>
+<br><br><br>
+<p>
+
+<b>Position:</b> <p>
+Device Name: <span id="dev_name">Controller01</span>
+<p>
+Before: (x, y, z)=<span id="before_pos">(0.0, 0.0, 0.0)</span>
+<p>
+After: &nbsp;(x, y, z)=<span id="after_pos">(0.0, 0.0, 0.0)</span>
+<p>
+<input type="button" name="Update" style="width: 70px; height: 20px" value="Update" onClick="g.update_objpos = 1;" />
+&nbsp; 
+<input type="button" name="Initialize" style="width: 70px; height: 20px" value="Initialize" onClick="location.href='init.cgi';" />
+<br>
+<p>
+</div>
+
+<div id="fragment-2">
+
+<form name="fm_gen">
+<b>Parameters:</b> <p>
+<table>
+<tr>
+<td style="" nowrap> Source: </td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap> Destination: </td>
+</tr>
+</tr>
+<td style="" nowrap>
+  <select name="src_host" id="src_host" style="width:80" size="" onChange="">
+   <option value="1" selected>host01
+   <option value="2">host02
+   <option value="3">host03
+   <option value="4">host04
+   <option value="5">host05
+   <option value="6">host06
+   <option value="7">host07
+   <option value="8">host08
+  </select>
+</td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap>
+  <select name="dst_host" id="dst_host" style="width:80" size="" onChange="">
+   <option value="1">host01
+   <option value="2">host02
+   <option value="3">host03
+   <option value="4">host04
+   <option value="5">host05
+   <option value="6">host06
+   <option value="7">host07
+   <option value="8" selected>host08
+  </select>
+</td>
+</tr>
+<tr>
+<td style="" nowrap> Protocol: </td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap> Packet Size: </td>
+</tr>
+<tr>
+<td style="" nowrap>
+  <select name="protocol" id="protocol" style="width:80" size="" onChange="">
+   <option value="0" selected>TCP
+   <option value="1">UDP
+   <option value="2">ICMP
+  </select>
+</td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap>
+  <select name="size" id="size" style="width:80" size="" onChange="">
+   <option value="0">1
+   <option value="1">5
+   <option value="2">10
+   <option value="3">50
+   <option value="4" selected>100
+   <option value="5">500
+   <option value="6">1000
+  </select>
+</td>
+</tr>
+<tr>
+<td style="" nowrap> Number of Loops: </td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap> Number of Processes: </td>
+</tr>
+<tr>
+<td style="" nowrap>
+  <select name="n_loops" id="n_loops" style="width:80" size="" onChange="">
+   <option value="0" selected>1
+   <option value="1">5
+   <option value="2">10
+  </select>
+</td>
+<td style="" nowrap> &nbsp; </td>
+<td style="" nowrap>
+  <select name="n_procs" id="n_procs" style="width:80" size="" onChange="">
+   <option value="0" selected>1
+   <option value="1">10
+   <option value="2">100
+  </select>
+</td>
+</tr>
+</table>
+<p>
+<input type="button" name="Start" style="width: 70px; height: 20px" value="Start" onClick="checkAnotherProcess();" />
+&nbsp; 
+<input type="button" name="Stop" style="width: 70px; height: 20px" value="Stop" onClick="stopProcess();" />
+
+<br>
+<p>
+</form>
+
+<b>Port Information:</b> <p>
+<div style="width:200">
+<table id="port_status" style="display:none" ></table>
+</div>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+</div>
+
+<div id="uiContainer"> <div id="ui"> </div> </div>
+<div id="scale_slider">:    1</div>
+<div id="xaxis_rotation_slider">:    1</div>
+<div id="display_time"> </div>
+
+<div style="font-size: x-small;padding: 2px">
+<div style="padding-bottom: 5px">
+<b>Flow Entries:</b>
+</div>
+<table id="flowlist" style="display:none"></table>
+</div>
+
+<pre id="debug"></pre>
+
+</body>
+</html>
