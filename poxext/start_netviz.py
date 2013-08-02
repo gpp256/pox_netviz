@@ -5,7 +5,7 @@
  
 def launch (interval=3):
   from log.level import launch
-  launch(DEBUG=True)
+#  launch(DEBUG=True)
 
   from samples.pretty_log import launch
   launch()

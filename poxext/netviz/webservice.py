@@ -52,6 +52,8 @@ Current commands include:
     Gets list of hosts and their basic info.
   get_links
     Gets connection status of respective switches.
+  clear_hosts
+    Clears hosts information.
 
 Example - Make a hub:
 curl -i -X POST -d '{"id": 1, "method":"set_table","params":{"dpid":
@@ -67,6 +69,7 @@ from pox.openflow.of_json import *
 from pox.web.jsonrpc import JSONRPCHandler, make_error
 from pox.lib.recoco import Timer
 import threading
+
 #import pprint
 #pp = pprint.PrettyPrinter(indent=4)
 
@@ -243,7 +246,6 @@ class OFSetTableRequest (OFConRequest):
     self.done = True
     self._finish(make_error("OpenFlow Error", data=event.asString()))
 
-
 class OFRequestHandler (JSONRPCHandler):
 
   def _init(self):
@@ -320,6 +322,14 @@ class OFRequestHandler (JSONRPCHandler):
   def _exec_get_hosts (self):
     return {'result':core.discovery.gmat, 'ver': self.version }
 
+  def _exec_clear_hosts (self):
+    del core.discovery.gmat[:]
+    return {'result': {'ret': 0}, 'ver': self.version }
+
+#def check_topology ():
+#  log.info("%s" % (pp.pprint(core.discovery.gmat)))
+#  log.info("%s" % (core.openflow_discovery.adjacency))
+
 def launch (username='', password=''):
   def _launch ():
     cfg = {}
@@ -329,3 +339,4 @@ def launch (username='', password=''):
 
   core.call_when_ready(_launch, ["WebServer","openflow"],
                        name = "openflow.webservice")
+#  Timer(10, check_topology, recurring = True)
