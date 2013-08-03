@@ -25,6 +25,9 @@ To install above modules, run the following commands.
     hg clone  https://www.secdev.org/scapy-com
     cd scapy-com
     python setup.py install
+    pkg_add -r py27-pcapy
+    pkg_add -r py27-libdnet
+
 
 To start POX components, run the following commands.
 
