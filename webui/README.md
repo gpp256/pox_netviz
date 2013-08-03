@@ -20,7 +20,7 @@ To install, run the following commands.
     
     git clone https://github.com/paulopmx/Flexigrid.git
     mkdir -p /opt/glNetViz/lib/js/Flexigrid
-    cp -r  Flexigrid/{js,css} /opt/glNetViz/lib/js/
+    cp -r  Flexigrid/{js,css} /opt/glNetViz/lib/js/Flexigrid/
     
     find /opt/glNetViz/examples/pox-example01 -type f -exec chmod 644 {} \;
     find /opt/glNetViz/examples/pox-example01 -name "*.sh" -exec chmod 755 {} \;
