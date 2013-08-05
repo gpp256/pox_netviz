@@ -328,6 +328,7 @@ class OFRequestHandler (JSONRPCHandler):
 
   def _exec_clear_hosts (self):
     del core.discovery.gmat[:]
+    core.discovery.gmat = []
     return {'result': {'ret': 0}, 'ver': self.version }
 
 #def check_topology ():
