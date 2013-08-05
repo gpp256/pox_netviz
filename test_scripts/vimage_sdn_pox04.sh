@@ -80,6 +80,10 @@ END_OF_LINE
 
 # start virtual machines and SDN
 start() {
+	vm_num=`jls -s 2>/dev/null | wc -l`
+	if [ $vm_num -ne 0 ]; then
+		echo 'this program is already started.'; exit 2
+	fi
 	sysctl net.inet.ip.forwarding=1
 	for n in `jot - 1 $SWITCH_NUM`; do 
 		jail -c vnet path=/ name=host0${n} persist
