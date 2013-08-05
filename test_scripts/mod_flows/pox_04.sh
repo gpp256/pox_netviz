@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# pox_all.sh
+# pox_04.sh
 #
 # Copyright (c) 2013 Yoshi 
 # This software is distributed under the MIT License.(../../MIT-LICENSE.txt)

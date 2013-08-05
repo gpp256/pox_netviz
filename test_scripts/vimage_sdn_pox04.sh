@@ -1,5 +1,5 @@
 #!/usr/local/bin/bash 
-# vimage_sdn_pox02.sh: Vimage Jail Sample Script
+# vimage_sdn_pox04.sh: Vimage Jail Sample Script
 # Usage: bash vimage_sdn_pox04.sh {start|stop|inithosts|test}
 #
 # Copyright (c) 2013 Yoshi 

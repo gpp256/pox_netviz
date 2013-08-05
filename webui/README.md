@@ -57,8 +57,8 @@ To start Vimage Jail, run the following commands.
 
     e.g.  
     cd test_scripts/
-    bash vimage_sdn_pox01.sh start
-    bash vimage_sdn_pox01.sh test
+    bash vimage_sdn_pox04.sh start
+    bash vimage_sdn_pox04.sh test
 
 References
 ------------
