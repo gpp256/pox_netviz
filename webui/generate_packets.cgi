@@ -42,6 +42,7 @@ sub execute_cmd {
 	while ($retry > 0) {
 		my $n = &pox_ui::getFlowNum(\@dpids);
 		last if ($n < $pox_ui::max_flownum);
+		sleep(1);
 		$retry--;
 	}
 	return 200 if ($retry <= 0) ;
