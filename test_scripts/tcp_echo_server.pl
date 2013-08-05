@@ -27,8 +27,9 @@ sub start_server {
 	my $paddr = accept(CLIENT, $socket);
 	select(CLIENT); $|=1; select(STDOUT);
 	while (<CLIENT>){ print CLIENT $_; }
+	close(CLIENT); 
 	}
-	close(CLIENT); close($socket);
+	close($socket);
 }
 END{ unlink($pidfile); }
 __END__
