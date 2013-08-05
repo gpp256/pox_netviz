@@ -36,7 +36,16 @@ sub execute_cmd {
 	my @nproc_map = (1, 10, 100);
 	my $cmd =  "$proto_map[$cmd_opt{proto}] host0$cmd_opt{src} 10.1.1.$cmd_opt{dst} " . 
 		"$size_map[$cmd_opt{size}] $nloop_map[$cmd_opt{n_loop}] $nproc_map[$cmd_opt{n_procs}]";
-	$ret = `$cmd  >/dev/null 2>&1`;
+	my $retry = 5;
+	my @dpids = ();
+	map { push @dpids, "00-00-00-00-00-0".$_; } (1..$pox_ui::switch_num);
+	while ($retry > 0) {
+		my $n = &pox_ui::getFlowNum(\@dpids);
+		last if ($n < $pox_ui::max_flownum);
+		$retry--;
+	}
+	return 200 if ($retry <= 0) ;
+	`$cmd  >/dev/null 2>&1`;
 	return $? >> 8;
 }
 

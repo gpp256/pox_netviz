@@ -181,7 +181,8 @@ function generatePackets () {
 			// reload page
 			changeDPID ('00-00-00-00-00-0'+src);
 			} else {
-			//alert('The operation failed.');
+				//alert('The operation failed.');
+				if (msg['ret'] == 200) alert('Error: Operation timed out');
 			}
 			document.fm_gen.Start.disabled = false;
 			document.fm_gen.Stop.disabled = true;
