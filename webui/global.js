@@ -54,7 +54,7 @@ var g = {
 	drawinfo_flows: [],
 	gwflowstat: undefined,
 	drawinfo_gwflows: [],
-	flowdata_id: 8,
+	flowdata_id: 4,
 	arrow_default_pos: [0],
 	arrow_delta: 0.4,
 	getflow_updateflag: 1,

@@ -50,7 +50,7 @@ function getSdnObjects(key) {
 
 function getOtherObjects(key) {
 	g.other_objs = {};
-	if (key != 4) { g.update_lineobjs_flag+=1; return; }
+	if (key != 10) { g.update_lineobjs_flag+=1; return; }
 	$.ajax({
 		url: "../../lib/cgi/get_otherobjs.cgi",
 		type: "GET",
@@ -68,9 +68,9 @@ function getOtherObjects(key) {
 }
 
 function loadObject () {
-	getSdnObjects(8);
-	getOtherObjects(8);
-	getFlowData(8);
+	getSdnObjects(4);
+	getOtherObjects(4);
+	getFlowData(4);
 }
 
 function getFlowData (key) {
